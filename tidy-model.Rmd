@@ -1,5 +1,8 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library('tidyverse') ; library('modeldata')
+``` 
 ---
-title: "tidy-model"
+title: "##Introduction"
 output: html_document
 ---
-
