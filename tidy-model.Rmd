@@ -61,4 +61,27 @@ species_lm <- lm(rate ~ temp + species, crickets)
 summary.lm(species_lm)
 ```
 
-The rate of chirping increased based on temperature. However, the O.exclamatonis seems to have a higher chiring rate as a species compared to the other
+The rate of chirping increased based on temperature. However, the O.exclamatonis seems to have a higher chirping rate as a species compared to the other
+
+## Interactions
+
+```{r species historgram, echo = FALSE}
+ggplot(crickets, aes(x = rate, fill = species)) +
+  geom_histogram(position = 'identity', alpha = 0.7, bins = 8) + 
+  ggtitle("Distribution of the chirp rate of crickets") +
+  xlab('Chirp rate (per min.)')
+```
+
+```{r interactions, echo= FALSE}
+ggplot(crickets, aes(x = temp, y = rate, color = species)) +
+  geom_point() + 
+  geom_smooth(method = 'lm') +
+  ggtitle("Plot of temperature and chirp rate for two species of crickets") +
+  ylab('Chirp rate (per min.)') +
+  xlab('Temperature (Celsius)')
+  
+species_x_temp_lm <- lm(rate ~ temp + species + temp:species, crickets) 
+summary.lm(species_x_temp_lm)
+
+anova(species_lm, species_x_temp_lm)
+```
