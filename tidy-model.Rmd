@@ -72,6 +72,8 @@ ggplot(crickets, aes(x = rate, fill = species)) +
   xlab('Chirp rate (per min.)')
 ```
 
+It shows that the O.exlamatonis has more counts of their species in counts that have a higher rate
+
 ```{r interactions, echo= FALSE}
 ggplot(crickets, aes(x = temp, y = rate, color = species)) +
   geom_point() + 
